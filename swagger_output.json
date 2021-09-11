@@ -1,0 +1,234 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Task manager api",
+    "description": "Simple Task manager with crud operations"
+  },
+  "host": "localhost:4000",
+  "basePath": "/api/v1",
+  "tags": [
+    {
+      "name": "Tasks",
+      "description": "Task manager endpoints"
+    }
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "securityDefinitions": {
+    "Authorization": {
+      "type": "apikey",
+      "name": "Authorization",
+      "description": "value: Bearer",
+      "in": "header",
+      "scheme": "bearer"
+    }
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/tasks": {
+      "get": {
+        "tags": [
+          "Tasks"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Tasks"
+        ],
+        "description": "Endpoint to sign in a specific user",
+        "parameters": [
+          {
+            "name": "name, completed",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/AddTask"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/tasks/{id}": {
+      "get": {
+        "tags": [
+          "Tasks"
+        ],
+        "description": "Endpoint to sign in a specific user",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Tasks"
+        ],
+        "description": "Endpoint to sign in a specific user",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Tasks"
+        ],
+        "description": "Endpoint to sign in a specific user",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name, completed",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/AddTask"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Task": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Read a book"
+        },
+        "completed": {
+          "type": "boolean",
+          "example": false
+        },
+        "date": {
+          "type": "string",
+          "example": "Date type"
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "Date type"
+        }
+      },
+      "required": [
+        "name",
+        "completed"
+      ]
+    },
+    "AddTask": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "code"
+        },
+        "completed": {
+          "type": "boolean",
+          "example": false
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "UpdateTask": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "code"
+        },
+        "completed": {
+          "type": "boolean",
+          "example": false
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "DeleteTask": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "code"
+        }
+      },
+      "required": [
+        "id"
+      ]
+    }
+  }
+}

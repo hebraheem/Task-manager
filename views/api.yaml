@@ -1,0 +1,29 @@
+swagger: "2.0"
+info:
+  title: Task manager api
+  description: Simple Task manager with crud operations
+  version: 1.0
+  contact:
+    email: iadebiyi01@gmail.com
+  liscence:
+    name: Apache 2.0
+    url: http://apache.org/
+  servers: 
+    -url: http://localhost:4000/
+    description: local server
+    -url: http://hebraheem.com/
+    description: company server
+schemes: [http, https]
+
+paths:
+  /api/v1/tasks:
+    get:
+      summary: Returns all tasks
+      description: A get request that return all tasks in the database
+      responses:
+        200:
+          description: success
+        400:
+          description: user error
+        500: 
+          description: server error
