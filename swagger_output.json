@@ -53,7 +53,7 @@
         "tags": [
           "Tasks"
         ],
-        "description": "Endpoint to sign in a specific user",
+        "description": "Endpoint to create task",
         "parameters": [
           {
             "name": "name, completed",
@@ -79,7 +79,7 @@
         "tags": [
           "Tasks"
         ],
-        "description": "Endpoint to sign in a specific user",
+        "description": "Endpoint to get a single task",
         "parameters": [
           {
             "name": "id",
@@ -104,7 +104,7 @@
         "tags": [
           "Tasks"
         ],
-        "description": "Endpoint to sign in a specific user",
+        "description": "Endpoint to delete task",
         "parameters": [
           {
             "name": "id",
@@ -129,7 +129,7 @@
         "tags": [
           "Tasks"
         ],
-        "description": "Endpoint to sign in a specific user",
+        "description": "Endpoint to edit task",
         "parameters": [
           {
             "name": "id",
