@@ -3,6 +3,7 @@ const task = require("../models/task");
 const getAllTasks = async (req, res) => {
   try {
     //#swagger.tags =["Tasks"]
+    //swagger.description = 'Endpoint to get task'
     const tasks = await task.find({});
     res.status(200).json({ tasks });
   } catch (error) {
@@ -13,7 +14,7 @@ const getAllTasks = async (req, res) => {
 const createTask = async (req, res) => {
   try {
     /* 	#swagger.tags = ['Tasks']
-        #swagger.description = 'Endpoint to sign in a specific user' 
+        #swagger.description = 'Endpoint to create task' 
         #swagger.parameters["name", completed]= {
           in: "body",
           required: false,
@@ -32,7 +33,7 @@ const createTask = async (req, res) => {
 const getTask = async (req, res) => {
   try {
     /* 	#swagger.tags = ['Tasks']
-        #swagger.description = 'Endpoint to sign in a specific user' */
+        #swagger.description = 'Endpoint to get a single task' */
 
     const { id: taskId } = req.params;
     const tasks = await task.findById({ _id: taskId });
@@ -48,7 +49,7 @@ const getTask = async (req, res) => {
 const deleteTask = async (req, res) => {
   try {
     /* 	#swagger.tags = ['Tasks']
-        #swagger.description = 'Endpoint to sign in a specific user' */
+        #swagger.description = 'Endpoint to delete task' */
 
     const { id: taskId } = req.params;
     const tasks = await task.deleteOne({ _id: taskId });
@@ -66,7 +67,7 @@ const editTasks = async (req, res) => {
   try {
     const { id: taskId } = req.params;
     /* 	#swagger.tags = ['Tasks']
-        #swagger.description = 'Endpoint to sign in a specific user' 
+        #swagger.description = 'Endpoint to edit task' 
         #swagger.parameters["name", completed]= {
           in: "body",
           required: false,
